@@ -4,18 +4,24 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                def exists = fileExists 'file'
+
+                if (exists) {
+                         echo 'Yes'
+                                } else {
+                         echo 'No'
+                            }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
+      //  stage('Test') {
+        //    steps {
+           //     echo 'Testing..'
+         //   }
+       // }
+       // stage('Deploy') {
+        //    steps {
                 echo 'Deploying....'
-            }
-        }
+          //  }
+       // }
     }
 }
