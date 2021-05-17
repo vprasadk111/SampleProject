@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                if (fileExists('file')) {
+                if (fileExists('sample.html')) {
                   echo 'Yes'
                     } else {
                     echo 'No'
