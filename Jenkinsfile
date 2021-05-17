@@ -1,27 +1,10 @@
 pipeline {
-    agent any
-
+    agent { docker { image 'maven:3.3.3' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                def exists = fileExists 'file'
-
-                if (exists) {
-                         echo 'Yes'
-                                } else {
-                         echo 'No'
-                            }
+                sh 'mvn --version'
             }
         }
-      //  stage('Test') {
-        //    steps {
-           //     echo 'Testing..'
-         //   }
-       // }
-       // stage('Deploy') {
-        //    steps {
-                echo 'Deploying....'
-          //  }
-       // }
     }
 }
