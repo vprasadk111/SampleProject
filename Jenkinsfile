@@ -3,12 +3,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                if (fileExists(sample.html)) {
+                def exists = fileExists 'sample.html'
+
+                if (exists) {
                   echo 'Yes'
-                    } else {
-                    echo 'No'
-                    }
-            }
+                            } else {
+                   echo 'No'
+                        }
+                }
         }
     }
 }
